@@ -128,13 +128,14 @@ export PROJECT_ID=$(gcloud config get-value project)
 gcloud builds submit --tag gcr.io/$PROJECT_ID/gemini-journal:latest
 ```
 
-### 2. Deploy Live to Google Cloud Run
+### 2. Deploy Live to Google Cloud Run (With Mandatory Verification Label)
 ```bash
 gcloud run deploy gemini-journal \
   --image gcr.io/$PROJECT_ID/gemini-journal:latest \
   --platform managed \
   --region asia-southeast1 \
   --allow-unauthenticated \
+  --labels dev-tutorial=cloud-run-ai-challenge \
   --set-env-vars GCP_PROJECT_ID=$PROJECT_ID,NODE_ENV=production \
   --set-secrets GEMINI_API_KEY=projects/$PROJECT_ID/secrets/GEMINI_API_KEY:latest
 ```

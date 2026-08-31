@@ -9,6 +9,7 @@ import MemoryMap from './components/MemoryMap';
 import BurnoutRadar from './components/BurnoutRadar';
 import ChatAssistant from './components/ChatAssistant';
 import MoodRewindModal from './components/MoodRewindModal';
+import AdminDashboard from './components/AdminDashboard';
 import { api } from './services/api';
 import { Sparkles, Shield, CheckCircle2, BookOpen, Compass, MapPin, Activity, MessageSquareQuote } from 'lucide-react';
 
@@ -203,6 +204,11 @@ export default function App() {
         {/* Gemini Mirror Tab */}
         {activeTab === 'assistant' && (
           <ChatAssistant user={user} />
+        )}
+
+        {/* Admin RBAC Tab */}
+        {activeTab === 'admin' && (
+          <AdminDashboard user={user} />
         )}
 
       </main>

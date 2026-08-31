@@ -89,6 +89,17 @@ export default function Navbar({
           >
             Gemini Mirror
           </button>
+
+          <button
+            onClick={() => setActiveTab('admin')}
+            className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${
+              activeTab === 'admin'
+                ? 'bg-slate-900 text-white'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+            }`}
+          >
+            Admin (RBAC)
+          </button>
         </nav>
 
         {/* Right Actions */}

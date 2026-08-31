@@ -53,12 +53,26 @@ Traditional journals are static. Gemini Journal turns reflection into an active,
 🗺️ Geotagged spatial memory explorer powered by Google Maps Platform
 🚨 Proactive AI Burnout Radar with enterprise Slack alerts
 
-Deployed effortlessly as a containerized microservice on Google Cloud Run.
+Deployed effortlessly as a containerized microservice on Google Cloud Run with automated verification label `dev-tutorial: cloud-run-ai-challenge`.
 
 Check out the project repository: [INSERT_GITHUB_REPO_URL]
 Live Demo: [INSERT_CLOUD_RUN_URL]
 
 #accelerateAIwithCloudRun #GoogleCloud #GenAI #Gemini #CloudRun #Firebase
+```
+
+---
+
+### 🚀 1-Line Cloud Run Deployment (with Mandatory Grading Label):
+```bash
+gcloud run deploy gemini-journal \
+  --image gcr.io/$PROJECT_ID/gemini-journal:latest \
+  --platform managed \
+  --region asia-southeast1 \
+  --allow-unauthenticated \
+  --labels dev-tutorial=cloud-run-ai-challenge \
+  --set-env-vars GCP_PROJECT_ID=$PROJECT_ID,NODE_ENV=production \
+  --set-secrets GEMINI_API_KEY=projects/$PROJECT_ID/secrets/GEMINI_API_KEY:latest
 ```
 
 ---

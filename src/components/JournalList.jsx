@@ -63,13 +63,51 @@ export default function JournalList({ entries = [], onNewEntry, onEditEntry, onD
           </p>
         </div>
 
-        <button
-          onClick={onNewEntry}
-          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold transition-all shadow-sm active:scale-95 shrink-0"
-        >
-          <Plus className="w-4 h-4" />
-          <span>+ Create Reflection</span>
-        </button>
+        <div className="flex items-center gap-2">
+          {/* Export Dropdown / Actions */}
+          <button
+            onClick={() => {
+              const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(filteredEntries, null, 2));
+              const downloadAnchor = document.createElement('a');
+              downloadAnchor.setAttribute("href", dataStr);
+              downloadAnchor.setAttribute("download", `gemini_journal_backup_${new Date().toISOString().split('T')[0]}.json`);
+              document.body.appendChild(downloadAnchor);
+              downloadAnchor.click();
+              downloadAnchor.remove();
+            }}
+            title="Export as JSON"
+            className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-700 text-xs font-semibold transition-all shadow-xs"
+          >
+            <span>JSON Export</span>
+          </button>
+
+          <button
+            onClick={() => {
+              const mdContent = filteredEntries.map(e => (
+                `# ${e.title}\n*Date: ${e.createdAt || 'Recent'} | Mood: ${e.mood} | Location: ${e.location?.city || 'Private'}*\n\n${e.content}\n\n> **Gemini Insight**: ${e.aiReflectionSummary || 'N/A'}\n\n---\n`
+              )).join('\n');
+              const dataStr = "data:text/markdown;charset=utf-8," + encodeURIComponent(mdContent);
+              const downloadAnchor = document.createElement('a');
+              downloadAnchor.setAttribute("href", dataStr);
+              downloadAnchor.setAttribute("download", `gemini_journal_${new Date().toISOString().split('T')[0]}.md`);
+              document.body.appendChild(downloadAnchor);
+              downloadAnchor.click();
+              downloadAnchor.remove();
+            }}
+            title="Export as Markdown"
+            className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-700 text-xs font-semibold transition-all shadow-xs"
+          >
+            <span>Markdown (.md)</span>
+          </button>
+
+          <button
+            onClick={onNewEntry}
+            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold transition-all shadow-sm active:scale-95 shrink-0"
+          >
+            <Plus className="w-4 h-4" />
+            <span>+ Create Reflection</span>
+          </button>
+        </div>
       </div>
 
       {/* Subtabs & Total Counter */}
