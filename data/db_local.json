@@ -1,0 +1,235 @@
+{
+  "users": {
+    "demo_user_grace_9281": {
+      "id": "demo_user_grace_9281",
+      "email": "grace.hopper@demo.gemini.ai",
+      "name": "Grace Hopper",
+      "createdAt": "2026-01-10T08:00:00.000Z",
+      "settings": {
+        "theme": "dark",
+        "notificationsEnabled": true
+      }
+    },
+    "user_alpha_test_1": {
+      "id": "user_alpha_test_1",
+      "email": "alpha@test.com",
+      "name": "Alpha",
+      "createdAt": "2026-08-31T20:26:44.636Z",
+      "settings": {
+        "theme": "dark",
+        "notificationsEnabled": true
+      }
+    },
+    "user_beta_test_2": {
+      "id": "user_beta_test_2",
+      "email": "beta@test.com",
+      "name": "Beta",
+      "createdAt": "2026-08-31T20:26:44.637Z",
+      "settings": {
+        "theme": "dark",
+        "notificationsEnabled": true
+      }
+    },
+    "demo_user_sarah_1102": {
+      "id": "demo_user_sarah_1102",
+      "email": "sarah.chen@tech.ai",
+      "name": "Sarah Chen (Lead Engineer)",
+      "createdAt": "2026-08-31T20:41:03.281Z",
+      "settings": {
+        "theme": "dark",
+        "notificationsEnabled": true
+      }
+    }
+  },
+  "entries": {
+    "entry_1": {
+      "id": "entry_1",
+      "userId": "demo_user_grace_9281",
+      "title": "Architecting the Next Cloud Horizon",
+      "content": "Spent the morning refining the distributed agent topology on Cloud Run. There is a palpable elegance when microservices communicate effortlessly with sub-second cold starts. I felt an immense sense of focus and flow today.",
+      "mood": "Joy",
+      "sentimentScore": 0.88,
+      "cognitiveFatigueScore": 15,
+      "emotions": [
+        "Accomplished",
+        "Creative",
+        "Focused"
+      ],
+      "keyThemes": [
+        "System Architecture",
+        "Flow State",
+        "Engineering"
+      ],
+      "aiReflectionSummary": "A standout moment of peak intellectual flow and engineering mastery.",
+      "growthPrompt": "How can you bring this deep state of joy into your next mentoring session?",
+      "tags": [
+        "Engineering",
+        "CloudRun",
+        "Flow"
+      ],
+      "location": {
+        "lat": 37.7749,
+        "lng": -122.4194,
+        "city": "San Francisco, CA",
+        "address": "Market Street Innovation Hub"
+      },
+      "photo": null,
+      "audioNote": null,
+      "isPinned": true,
+      "createdAt": "2026-08-28T14:30:00.000Z",
+      "updatedAt": "2026-08-28T14:30:00.000Z"
+    },
+    "entry_2": {
+      "id": "entry_2",
+      "userId": "demo_user_grace_9281",
+      "title": "A Walk Through Ueno Park & Quiet Thoughts",
+      "content": "Early morning walk beneath the blooming canopy. The quiet rustle of leaves reminded me why stepping away from the keyboard is essential. Breathing deeply and letting the mind settle without a screen.",
+      "mood": "Calm",
+      "sentimentScore": 0.92,
+      "cognitiveFatigueScore": 8,
+      "emotions": [
+        "Peaceful",
+        "Mindful",
+        "Serene"
+      ],
+      "keyThemes": [
+        "Mindfulness",
+        "Nature",
+        "Rest"
+      ],
+      "aiReflectionSummary": "A gentle and grounding reconnection with nature that restored your baseline calm.",
+      "growthPrompt": "Notice what peaceful sensations stay with you as you resume work today.",
+      "tags": [
+        "Travel",
+        "Nature",
+        "Meditation"
+      ],
+      "location": {
+        "lat": 35.7148,
+        "lng": 139.7741,
+        "city": "Tokyo, Japan",
+        "address": "Ueno Onshi Park"
+      },
+      "photo": null,
+      "audioNote": null,
+      "isPinned": false,
+      "createdAt": "2026-08-20T07:15:00.000Z",
+      "updatedAt": "2026-08-20T07:15:00.000Z"
+    },
+    "entry_3": {
+      "id": "entry_3",
+      "userId": "demo_user_grace_9281",
+      "title": "Midnight Debugging & Overcoming Imposter Doubts",
+      "content": "Faced an elusive race condition in the async streaming pipeline. For two hours, frustration crept in. I stepped back, drew the state machine on paper, and spotted the missing mutex. Exhausted, but grateful for persistence.",
+      "mood": "Reflective",
+      "sentimentScore": 0.45,
+      "cognitiveFatigueScore": 62,
+      "emotions": [
+        "Determined",
+        "Vulnerable",
+        "Relieved"
+      ],
+      "keyThemes": [
+        "Problem Solving",
+        "Resilience",
+        "Deep Work"
+      ],
+      "aiReflectionSummary": "You converted intense technical friction into a hard-earned victory through systematic clarity.",
+      "growthPrompt": "Celebrate the patience you showed rather than just the final fix.",
+      "tags": [
+        "Debugging",
+        "Growth",
+        "Persistence"
+      ],
+      "location": {
+        "lat": 1.3521,
+        "lng": 103.8198,
+        "city": "Singapore",
+        "address": "Marina Bay Financial Centre"
+      },
+      "photo": null,
+      "audioNote": null,
+      "isPinned": false,
+      "createdAt": "2026-08-12T22:45:00.000Z",
+      "updatedAt": "2026-08-12T22:45:00.000Z"
+    },
+    "entry_4": {
+      "id": "entry_4",
+      "userId": "demo_user_grace_9281",
+      "title": "Evening by the Thames & Coffee Conversations",
+      "content": "Met with old colleagues along Southbank. We talked about how AI is reshaping how humanity writes and remembers. The sunset over St Paul's was breathtaking.",
+      "mood": "Grateful",
+      "sentimentScore": 0.95,
+      "cognitiveFatigueScore": 12,
+      "emotions": [
+        "Grateful",
+        "Inspired",
+        "Connected"
+      ],
+      "keyThemes": [
+        "Friendship",
+        "Future of AI",
+        "Gratitude"
+      ],
+      "aiReflectionSummary": "A heart-warming evening affirming the value of deep relationships and future dreams.",
+      "growthPrompt": "Who is one person you can send an unexpected thank-you message to tomorrow?",
+      "tags": [
+        "Connection",
+        "London",
+        "Gratitude"
+      ],
+      "location": {
+        "lat": 51.5074,
+        "lng": -0.1278,
+        "city": "London, UK",
+        "address": "Southbank Riverside Promenade"
+      },
+      "photo": null,
+      "audioNote": null,
+      "isPinned": false,
+      "createdAt": "2026-08-04T19:00:00.000Z",
+      "updatedAt": "2026-08-04T19:00:00.000Z"
+    }
+  },
+  "chat_sessions": {
+    "default": {
+      "id": "default",
+      "userId": "demo_user_grace_9281",
+      "messages": [
+        {
+          "id": "msg_1788208834198_vhq48",
+          "userId": "demo_user_grace_9281",
+          "sessionId": "default",
+          "role": "user",
+          "content": "I'm experiencing sudden imposter syndrome today. Can you ask me 2 Socratic questions to help me see my objective track record?",
+          "createdAt": "2026-08-31T20:40:34.198Z"
+        },
+        {
+          "id": "msg_1788208834251_emgzg",
+          "userId": "demo_user_grace_9281",
+          "sessionId": "default",
+          "role": "model",
+          "content": "Thank you for sharing that reflection. Writing these thoughts down is already a powerful act of self-awareness.\n\nAs you look at what you just described:\n- What part of this situation feels most within your control?\n- How does this moment connect with what truly matters to you right now?\n\nI'm right here with you—feel free to expand on whatever feels most alive in your mind.",
+          "createdAt": "2026-08-31T20:40:34.251Z"
+        },
+        {
+          "id": "msg_1788208849463_y2jhx",
+          "userId": "demo_user_grace_9281",
+          "sessionId": "default",
+          "role": "user",
+          "content": "✨ My Gemini Journal Mood Rewind: Soul Archetype: The Resilient Alchemist Total Reflections: 4 Soundtrack Vibe: Cinematic Ambient Piano & Uplifting Lo-Fi Beats  Built on Google Cloud Run with #accelerateAIwithCloudRun!",
+          "createdAt": "2026-08-31T20:40:49.463Z"
+        },
+        {
+          "id": "msg_1788208849464_s14j4",
+          "userId": "demo_user_grace_9281",
+          "sessionId": "default",
+          "role": "model",
+          "content": "Thank you for sharing that reflection. Writing these thoughts down is already a powerful act of self-awareness.\n\nAs you look at what you just described:\n- What part of this situation feels most within your control?\n- How does this moment connect with what truly matters to you right now?\n\nI'm right here with you—feel free to expand on whatever feels most alive in your mind.",
+          "createdAt": "2026-08-31T20:40:49.464Z"
+        }
+      ]
+    }
+  },
+  "mood_analytics": {}
+}

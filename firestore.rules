@@ -1,0 +1,70 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions for auth verification
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // --- USER PROFILE & SETTINGS ---
+    match /users/{userId} {
+      allow read: if isOwner(userId);
+      allow create: if isOwner(userId)
+                    && request.resource.data.keys().hasAll(['email', 'createdAt'])
+                    && request.resource.data.email is string;
+      allow update: if isOwner(userId)
+                    && (!request.resource.data.diff(resource.data).affectedKeys().hasAny(['id', 'createdAt']));
+      allow delete: if isOwner(userId);
+
+      // --- USER JOURNAL ENTRIES (Isolated Subcollection) ---
+      match /entries/{entryId} {
+        allow read: if isOwner(userId);
+        
+        allow create: if isOwner(userId)
+                      && request.resource.data.keys().hasAll(['title', 'content', 'createdAt', 'userId'])
+                      && request.resource.data.userId == userId
+                      && request.resource.data.title is string
+                      && request.resource.data.content is string
+                      && request.resource.data.title.size() <= 200
+                      && request.resource.data.content.size() <= 20000;
+
+        allow update: if isOwner(userId)
+                      && request.resource.data.userId == userId
+                      && (!request.resource.data.diff(resource.data).affectedKeys().hasAny(['userId', 'createdAt']))
+                      && request.resource.data.content is string
+                      && request.resource.data.content.size() <= 20000;
+
+        allow delete: if isOwner(userId);
+      }
+
+      // --- CONVERSATIONAL AI SESSIONS & CHAT HISTORY ---
+      match /chat_sessions/{sessionId} {
+        allow read, write: if isOwner(userId);
+
+        match /messages/{messageId} {
+          allow read: if isOwner(userId);
+          allow create: if isOwner(userId)
+                        && request.resource.data.userId == userId
+                        && request.resource.data.role in ['user', 'model', 'system'];
+          allow update, delete: if isOwner(userId);
+        }
+      }
+
+      // --- MOOD REWIND & SENTIMENT METRICS ---
+      match /mood_analytics/{periodId} {
+        allow read: if isOwner(userId);
+        allow write: if isOwner(userId);
+      }
+    }
+
+    // Default deny for all other unmatched paths
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
