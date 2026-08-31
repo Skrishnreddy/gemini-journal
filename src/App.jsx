@@ -141,8 +141,10 @@ export default function App() {
         {/* Hero Section (Only shown on primary journal overview) */}
         {activeTab === 'journal' && !isComposerOpen && !editingEntry && (
           <HeroSection
+            user={user}
             onOpenComposer={() => setIsComposerOpen(true)}
             onOpenMoodRewind={() => setIsMoodRewindOpen(true)}
+            onGoogleSignIn={() => setIsAuthOpen(true)}
           />
         )}
 
