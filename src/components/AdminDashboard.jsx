@@ -195,13 +195,25 @@ export default function AdminDashboard({ user }) {
         </div>
 
         <div className="p-4 rounded-xl bg-slate-900 text-emerald-400 font-mono text-xs overflow-x-auto leading-relaxed border border-slate-800">
-          <pre>{`// Enforced by firestore.rules
+          <pre>{`// Hardened firestore.rules
+function isAuthenticated() {
+  return request.auth != null;
+}
+
+function isOwner(userId) {
+  return isAuthenticated() && request.auth.uid == userId;
+}
+
 match /users/{userId} {
-  allow read, write: if request.auth != null && request.auth.uid == userId;
+  allow read, write: if isOwner(userId);
 
   match /entries/{entryId} {
-    allow read, delete: if request.auth.uid == userId;
-    allow create, update: if request.auth.uid == userId && request.resource.data.userId == userId;
+    allow read, delete: if isOwner(userId);
+    allow create, update: if isOwner(userId) && request.resource.data.userId == userId;
+  }
+
+  match /chat_sessions/{sessionId} {
+    allow read, write: if isOwner(userId);
   }
 }`}</pre>
         </div>
