@@ -7,6 +7,7 @@ export default function Navbar({
   activeTab,
   setActiveTab,
   onOpenAuth,
+  onGoogleSignIn,
   onLogout,
   onOpenMoodRewind,
   streakCount = 7
@@ -135,7 +136,7 @@ export default function Navbar({
             </div>
           ) : (
             <button
-              onClick={onOpenAuth}
+              onClick={onGoogleSignIn || onOpenAuth}
               className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold border border-slate-200 shadow-sm transition-all"
             >
               <svg className="w-3.5 h-3.5" viewBox="0 0 24 24">

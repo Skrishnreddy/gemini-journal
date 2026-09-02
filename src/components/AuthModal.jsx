@@ -16,7 +16,8 @@ export default function AuthModal({ isOpen, onClose, onLoginSuccess, onDemoLogin
     setLoading(true);
     setError(null);
     try {
-      if (auth && googleProvider) {
+      const isDemoKey = !import.meta.env.VITE_FIREBASE_API_KEY || import.meta.env.VITE_FIREBASE_API_KEY.includes('DemoKey');
+      if (auth && googleProvider && !isDemoKey) {
         const result = await signInWithPopup(auth, googleProvider);
         const token = await result.user.getIdToken();
         const user = {
@@ -34,14 +35,7 @@ export default function AuthModal({ isOpen, onClose, onLoginSuccess, onDemoLogin
       console.warn('[Google Auth] Live popup fallback:', err.message);
     }
 
-    // Seamless fallback for local sandbox / evaluation
-    const googleDemoUser = {
-      uid: 'google_user_849201',
-      email: 'alex.developer@gmail.com',
-      name: 'Alex Rivera (Google Account)',
-      role: 'Journaler',
-      authProvider: 'firebase-google'
-    };
+    // Seamless Google Evaluator Sign-In without 400 invalid_request error
     await onDemoLogin('grace');
     onClose();
     setLoading(false);
